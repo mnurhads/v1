@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+ErrorDocument 404 http://mnurhadev-1c778ad5fe7b.nevacloud.io/v1/404
+ErrorDocument 403 http://mnurhadev-1c778ad5fe7b.nevacloud.io/v1/403
+Options -Indexes
+DirectoryIndex first.html index.htm index.html index.php bin.html redirect.html bin.php index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+) - [PT,L]
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+</IfModule>
